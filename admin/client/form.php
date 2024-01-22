@@ -1,3 +1,21 @@
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/connect.php";
+	$clientNom = ""; $clientPrenom = "";
+
+	if (isset($_GET["id"]) && $_GET["id"] > 0)
+	{
+		$sql = "SELECT * FROM tblclient 
+				WHERE clientId = :id";
+
+		$statement = $db->prepare($sql);
+		$statement->execute([":id"=>$_GET["id"]]);
+		if ($row = $statement->fetch())
+		{
+			$clientNom = $row["clientNom"];
+			$clientPrenom = $row["clientPrenom"];
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,30 +28,18 @@
 </head>
 
 <body>
-
 	<head></head>
 	<main>
-		<!-- 
-	clientId	
-clientDate	
-clientAdresse	
-clientAdresse2	
-clientCP	
-clientVille	
-clientPays	
-clientMail	
-clientTel	
--->
 		<!-- Formulaire de création ou modification d'un compte -->
 		<form action="./traitement.php" method="post">
 			<div class="form-group">
 				<label for="clientNom">Entrez votre nom</label>
-				<input class="form-control" id="clientNom" placeholder="Doe" name="clientNom">
+				<input class="form-control" id="clientNom" placeholder="Doe" name="clientNom" value="<?=$clientNom;?>">
 			</div>
 
 			<div class="form-group">
 				<label for="clientPrenom">Entrez votre prenom</label>
-				<input class="form-control" id="clientPrenom" placeholder="John" name="clientPrenom">
+				<input class="form-control" id="clientPrenom" placeholder="John" name="clientPrenom" value="<?=$clientPrenom;?>">
 			</div>
 
 			<div class="form-group">

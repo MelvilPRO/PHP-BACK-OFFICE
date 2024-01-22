@@ -1,25 +1,30 @@
 <?php require_once $_SERVER["DOCUMENT_ROOT"]."/connect.php";
-	$clientNom = "";
-	$clientPrenom = "";
+	if (isset($_POST["clientId"]) && $_POST["clientId"] > 0)
+	{
+		$sql = "UPDATE tblclient 
+				SET clientNom=:nom, clientPrenom=:prenom
+				WHERE clientId=:id";
+	}
+	else
+	{
+		$sql = "INSERT INTO tblclient (clientNom, clientPrenom)
+				VALUES (:nom, :prenom)";
+	}
 
-	if (isset($_POST["clientNom"]))
+	if (isset($_POST["clientId"]) && $_POST["clientId"] > 0)
 	{
-		$clientNom = $_POST["clientNom"];
+		$statement->bindParam(":id", $_POST["clientId"]);
 	}
-		
-	if (isset($_POST["clientPrenom"]))
-	{
-		$clientPrenom = $_POST["clientPrenom"];
-	}
-	
-	$sql = "INSERT INTO tblclient (clientNom, clientPrenom)
-			VALUES (:nom, :prenom)";
 
 	$statement = $db->prepare($sql);
-	$statement->execute([":nom"=>$clientNom,
-						 ":prenom"=>$clientPrenom]);
-	// Ou
-	//$statement->bindParam(":nom", $_POST["clientNom"]);
-	//$statement->bindParam(":prenom", $_POST["clientPrenom"]);
-	//$statement->execute();
+	if (isset($_POST["clientNom"]))
+	{
+		$statement->bindParam(":nom", $_POST["clientNom"]);
+	}
+	if (isset($_POST["clientPrenom"]))
+	{
+		$statement->bindParam(":prenom", $_POST["clientPrenom"]);
+	}
+	
+	$statement->execute();
 ?>
