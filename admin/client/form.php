@@ -25,15 +25,15 @@ clientMail
 clientTel	
 -->
 		<!-- Formulaire de création ou modification d'un compte -->
-		<form>
+		<form action="./traitement.php" method="post">
 			<div class="form-group">
-				<label for="nom">Entrez votre nom</label>
-				<input class="form-control" id="nom" placeholder="Doe">
+				<label for="clientNom">Entrez votre nom</label>
+				<input class="form-control" id="clientNom" placeholder="Doe" name="clientNom">
 			</div>
 
 			<div class="form-group">
-				<label for="prenom">Entrez votre prenom</label>
-				<input class="form-control" id="prenom" placeholder="John">
+				<label for="clientPrenom">Entrez votre prenom</label>
+				<input class="form-control" id="clientPrenom" placeholder="John" name="clientPrenom">
 			</div>
 
 			<div class="form-group">
@@ -55,15 +55,10 @@ clientTel
 			</div>
 
 			<th scope="col">Supprimer</th>
-			<th scope="col">Modifier</th> -->
-
-
-
-
+			<th scope="col">Modifier</th>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</main>
 	<footer></footer>
 </body>
-
 </html>
