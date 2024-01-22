@@ -37,21 +37,21 @@ clientTel
 			</div>
 
 			<div class="form-group">
-				<label for="naissance">Entrez votre date de naissance</label>
-				<input type="date" class="form-control" id="naissance" placeholder="naissance">
+				<label for="clientDate">Entrez votre date de naissance</label>
+				<input type="date" class="form-control" id="clientDate" placeholder="clientDate" name="clientDate">
 			</div>
 			
 			<div class="form-group">
-				<label for="date">Entrez votre adresse mail</label>
-				<input type="email" class="form-control" id="date" aria-describedby="email-help"
+				<label for="clientMail">Entrez votre adresse mail</label>
+				<input type="email" class="form-control" id="clientMail" name="clientMail" aria-describedby="email-help"
 					placeholder="john.doe@gmail.com">
 				<small id="email-help" class="form-text text-muted">We'll never share your email with anyone
 					else.</small>
 			</div>
 
 			<div class="form-group">
-				<label for="tel">Entrez votre numero de telephone</label>
-				<input class="form-control" id="tel" placeholder="0102030405">
+				<label for="clientTel">Entrez votre numero de telephone</label>
+				<input class="form-control" id="clientTel" placeholder="0102030405">
 			</div>
 
 			<th scope="col">Supprimer</th>
