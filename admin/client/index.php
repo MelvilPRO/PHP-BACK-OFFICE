@@ -1,3 +1,7 @@
+<!-- 
+	Ici on récupère la liste des clients
+	Requête préparéer avec fetchAll
+ -->
 <?php require_once $_SERVER["DOCUMENT_ROOT"]."/connect.php";
 	$sql = "SELECT * FROM tblclient
 	ORDER BY clientNom, clientPrenom ASC";

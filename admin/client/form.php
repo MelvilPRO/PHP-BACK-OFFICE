@@ -1,3 +1,8 @@
+<!-- 
+	Page pour créer ou modifier un utilisateur
+	Modifie si l'id est présent avec GET
+	Sinon créer un utilisateur
+ -->
 <?php require_once $_SERVER["DOCUMENT_ROOT"]."/connect.php";
 	$clientNom = ""; $clientPrenom = "";
 

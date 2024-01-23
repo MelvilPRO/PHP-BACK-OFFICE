@@ -1,3 +1,10 @@
+<!-- 
+	Si l'id est n'est pas null, alors on modifie des informations
+	Sinon l'on rajouter un nouveau client dans la base de données
+
+	Ensuite on fait une requête préparée pour éviter les injections SQL
+	On execute la requête et reviens sur la liste des comptes
+ -->
 <?php require_once $_SERVER["DOCUMENT_ROOT"]."/connect.php";
 	if (isset($_POST["clientId"]) && $_POST["clientId"] > 0)
 	{
@@ -10,6 +17,7 @@
 		$sql = "INSERT INTO tblclient (clientNom, clientPrenom)
 				VALUES (:nom, :prenom)";
 	}
+
 
 	if (isset($_POST["clientId"]) && $_POST["clientId"] > 0)
 	{
@@ -27,4 +35,5 @@
 	}
 	
 	$statement->execute();
+	header("location:index.php");
 ?>
